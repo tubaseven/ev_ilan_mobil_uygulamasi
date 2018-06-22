@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <title>@ViewBag.Title</title>
+
+    <style type="text/css">
+
+        body {
+  
+}
+
+#exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+#exTab2 h3 {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+
+
+    </style>
+
+</head>
+<body style="background-image:url('/Content/background.jpg');">
+
+
+    
+    <div id="exTab1" class="container">
+
+        <nav class="col-md-12" style="margin-top:0px;margin-bottom:0px;padding:10px; background-color:#4876ff;">
+            <div class="container ">
+                <center><font size="5" color="white"><b>YAZLAB SQLITE SORGU SAYFASI</b></font></center>
+            </div>
+        </nav>
+
+        <br />
+
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a href="#1a" data-toggle="tab">EV EKLE</a>
+            </li>
+            <li>
+                <a href="#2a" data-toggle="tab">EV SIL</a>
+            </li>
+            <li>
+                <a href="#3a" data-toggle="tab">RESIM EKLE</a>
+            </li>
+            <li>
+                <a href="#4a" data-toggle="tab">RESIM SIL</a>
+            </li>
+        </ul>
+
+        <div class="tab-content clearfix">
+            
+            <!-- EV EKLE -->
+            <div class="tab-pane active" id="1a">
+               
+                <form action="/Sorgu/Ev_Ekle" method="post">
+
+                    <div style="float:left;">
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="il" placeholder="Sehir/IL" />
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="emlaktip" placeholder="Emlak Tipi" />
+                    </div>
+                    <div style="float:left;">
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="alan" placeholder="Alan" />
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="odasayisi" placeholder="Oda Sayisi" />
+                    </div>
+                    <div style="float:left;">
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="binayasi" placeholder="Bina Yasi" />
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="bulkat" placeholder="Bulunan Kat Sayisi" />
+                    </div>
+                    <div style="float:left;">
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="fiyat" placeholder="Fiyat" />
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="aciklama" placeholder="Aciklama" />
+                    </div>
+
+                    <div style="float:left; margin:5px; margin-left:60px;">
+                        <br /><br />
+                        <input class="form-control btn-warning" style="min-width:160px;" type="submit" value=" VERITABANINA EKLE " />
+                    </div>
+                </form>
+
+            </div>
+
+
+            <!-- EV SIL -->
+            <div class="tab-pane" id="2a">
+                
+                <form action="/Sorgu/Ev_Sil" method="post">
+
+                    <br />
+                    <div style="float:left;">
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="evID" placeholder="SILINECEK EV ID" />
+
+                    </div>
+
+                    <div style="float:left; margin:5px; margin-left:30px;">
+                        <input class="form-control btn-warning" style="min-width:160px;" type="submit" value="VERITABANINDAN SIL" />
+                    </div>
+
+                </form>
+            
+            </div>
+            
+            <!-- RESIM EKLE -->
+            <div class="tab-pane" id="3a">
+
+                <form action="/Sorgu/Resim_Ekle" method="post">
+
+                    <br />
+                    <div style="float:left;">
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="resimEvID" placeholder="EV ID" />
+
+                    </div>
+                    <div style="float:left;">
+                        <input class="form-control" style="max-width:300px; margin:5px;" type="text" name="resimYol" placeholder="RESIM YOL" />
+
+                    </div>
+
+                    <div style="float:left; margin:5px; margin-left:60px;">
+
+                        <input class="form-control btn-warning" style="min-width:160px;" type="submit" value=" VERITABANINA EKLE " />
+                    </div>
+                </form>
+
+            </div>
+
+
+            <!-- RESIM SIL -->
+            <div class="tab-pane" id="4a">
+
+                <form action="/Sorgu/Resim_Sil" method="post">
+
+                    <br />
+                    <div style="float:left;">
+                        <input class="form-control" style="max-width:200px; margin:5px;" type="text" name="resimID" placeholder="SILINECEK RESIM ID" />
+
+                    </div>
+
+                    <div style="float:left; margin:5px; margin-left:30px;">
+                        <input class="form-control btn-warning" style="min-width:160px;" type="submit" value="VERITABANINDAN SIL" />
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <br />
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">VERITABANINDAKI TABLOLAR:</div>
+            <div class="panel-body">@RenderBody()</div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+</body>
+</html>

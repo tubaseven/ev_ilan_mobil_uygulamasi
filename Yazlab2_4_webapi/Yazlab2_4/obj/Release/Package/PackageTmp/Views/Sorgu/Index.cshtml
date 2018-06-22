@@ -1,0 +1,70 @@
+﻿@using Yazlab2_4.Models
+
+
+@{
+    ViewBag.Title = "Index";
+    Ev_Tipi[] evler       = (Ev_Tipi[])ViewData["ev_listesi"];
+    Resim_Tipi[] resimler = (Resim_Tipi[])ViewData["resim_listesi"];
+}
+
+<h4>Ev Tablosu:</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>IL</th>
+            <th>Emlak Tipi</th>
+            <th>Alan</th>
+            <th>Oda Sayisi</th>
+            <th>Bina Yasi</th>
+            <th>Kat Sayisi</th>
+            <th>Fiyat</th>
+            <th>Aciklama</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Ev_Tipi ev in evler)
+            {
+                <tr>
+                    <td>@ev.evID</td>
+                    <td>@ev.evIL</td>
+                    <td>@ev.evEmlakTip</td>
+                    <td>@ev.evAlan</td>
+                    <td>@ev.evOdaSayisi</td>
+                    <td>@ev.evBinaYasi</td>
+                    <td>@ev.evBulKat</td>
+                    <td>@ev.evFiyat</td>
+                    <td>@ev.evAciklama</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<br />
+
+<h4>Resim Tablosu:</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Resim ID</th>
+            <th>Ev ID</th>
+            <th>Resim Yol</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Resim_Tipi resim in resimler)
+            {
+                <tr>
+                    <td>@resim.resimID</td>
+                    <td>@resim.resimEvID</td>
+                    <td>@resim.resimYol</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
